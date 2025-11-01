@@ -1,4 +1,4 @@
-from src import input_usuario, variaveis
+from src import funcoes2, input_usuario, variaveis
 from src import funcoes
 from src import conversoes
 from src import input_usuario
@@ -20,8 +20,11 @@ def main():
     # input_usuario.solicitar_float()
     # input_usuario.solicitar_int()
 
-    funcoes.processar_pedido()
+    #funcoes.processar_pedido()
 
+    #funcoes.calcular_valor_compra_paraguai()
+    
+    funcoes2.exercicio_aluno()
 
 if __name__ == "__main__":
     main() #executar uma função chamada de main (principal)
