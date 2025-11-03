@@ -189,7 +189,7 @@ def exercicio_aluno():
     print("\n--- RESULTADO FINAL ---")
     print(f"Aluno: {nome}")
     print(f"Média: {media:.2f}")
-    print("Situação: " + ("Aprovado ✅" if media >= 7 else "Reprovado ❌"))
+    print("Situação: " + ("Aprovado" if media >= 7 else "Reprovado"))
     print(f"Idade: {idade} anos ({geracao})")
     print(f"IMC: {imc:.2f} - {classificacao_imc}")
     if salario > 0:
@@ -197,3 +197,98 @@ def exercicio_aluno():
     else:
         print(f"Cargo '{cargo}' não reconhecido.")
 
+# Criar funções para solicitar:
+
+# nome do motorista
+
+# modelo do veículo
+
+# tipo de combustível (álcool / gasolina / diesel / elétrico)
+
+# consumo médio (km/l ou km/kWh)
+
+# distância total da viagem (km)
+
+# preço do combustível (ou kWh)
+
+# Calcular e apresentar:
+
+# o custo total da viagem
+
+# o tempo estimado da viagem (considerando uma velocidade média solicitada ao usuário)
+
+# Criar uma função para classificar o consumo:
+
+# até 8 km/l → “Alto consumo”
+
+# entre 9 e 14 km/l → “Consumo médio”
+
+# acima de 15 km/l → “Econômico”
+
+# Exibir resumo final:
+
+# Motorista, veículo, combustível, consumo, custo e tempo estimado.
+
+
+    
+def solicitar_nome_motorista() -> str:
+    return input("Digite o nome do motorista: ")
+
+def solicitar_modelo_veiculo() -> str:
+    return input("Digite o modelo do veículo: ")
+
+def solicitar_tipo_combustivel() -> str:
+    return input("Digite o tipo de combustível (álcool/gasolina/diesel/elétrico): ").strip().lower()
+
+def solicitar_consumo() -> float:
+    return float(input("Digite o consumo médio (km/l ou km/kWh): ").replace(",", "."))
+
+def solicitar_distancia() -> float:
+    return float(input("Digite a distância total da viagem (km): ").replace(",", "."))
+
+def solicitar_preco_combustivel() -> float:
+    return float(input("Digite o preço por litro (ou kWh): ").replace(",", "."))
+
+def solicitar_velocidade_media() -> float:
+    return float(input("Digite a velocidade média esperada (km/h): ").replace(",", "."))
+
+def calcular_custo_viagem(distancia: float, consumo: float, preco_combustivel: float) -> float:
+    return (distancia / consumo) * preco_combustivel
+
+def calcular_tempo_viagem(distancia: float, velocidade_media: float) -> float:
+    return distancia / velocidade_media
+
+def classificar_consumo(consumo: float) -> str:
+    if consumo <= 8:
+        return "Alto consumo"
+    elif consumo <= 14:
+        return "Consumo moderado"
+    else:
+        return "Econômico"
+
+def exercicio_viagem():
+    print("=== SISTEMA DE CÁLCULO DE VIAGEM ===")
+
+    
+    nome = solicitar_nome_motorista()
+    modelo = solicitar_modelo_veiculo()
+    combustivel = solicitar_tipo_combustivel()
+    consumo = solicitar_consumo()
+    distancia = solicitar_distancia()
+    preco_combustivel = solicitar_preco_combustivel()
+    velocidade_media = solicitar_velocidade_media()
+
+   
+    custo_total = calcular_custo_viagem(distancia, consumo, preco_combustivel)
+    tempo_total = calcular_tempo_viagem(distancia, velocidade_media)
+    classificacao = classificar_consumo(consumo)
+
+
+    print("\n--- RESUMO DA VIAGEM ---")
+    print(f"Motorista: {nome}")
+    print(f"Veículo: {modelo}")
+    print(f"Combustível: {combustivel.capitalize()}")
+    print(f"Consumo médio: {consumo:.2f} km/l → {classificacao}")
+    print(f"Distância total: {distancia:.1f} km")
+    print(f"Custo total estimado: R$ {custo_total:,.2f}")
+    print(f"Tempo estimado: {tempo_total:.2f} horas")
