@@ -75,7 +75,7 @@ def exemplos():
     cliente = __solicitar_text()
     senha = __solicitar_senha()
         
-    if cliente.endswith("@proway.com") and senha == "Batatinha":
+    if cliente.endswith("@gmail.com") and senha == "Batatinha":
         #print("Passou")
         tamanho = __escolher_opcao()
         sabores = __escolher_sabores(tamanho)
