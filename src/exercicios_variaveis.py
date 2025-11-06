@@ -218,7 +218,7 @@ def cadastrar_produto():
                 f"Obrigado por comprar conosco! 😄\n"
             )
 
-        print("\n✅ Arquivo 'resumo_pedido.txt' foi salvo com sucesso na sua Área de Trabalho!\n")
+        print("\nArquivo 'resumo_pedido.txt' foi salvo com sucesso na sua Área de Trabalho!\n")
     else:
         print("\nResumo não foi salvo. Obrigado por usar o sistema! 😄\n")
 

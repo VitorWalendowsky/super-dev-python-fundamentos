@@ -4,6 +4,7 @@ from src import conversoes
 from src import input_usuario
 # from src.inputs import exemplo_questionary
 from src import exercicios_variaveis
+from src import exercicios_cinema
 
 
 def main():
@@ -57,7 +58,11 @@ def main():
 
     #exemplo_questionary.exemplos()
 
-    exercicios_variaveis.cadastrar_produto()
+    
+    #exercicios_variaveis.cadastrar_produto()
+
+
+    exercicios_cinema.exercicio_cinema()
 
 
 if __name__ == "__main__":
