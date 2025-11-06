@@ -2,7 +2,9 @@ from src import funcoes2, input_usuario, variaveis
 from src import funcoes
 from src import conversoes
 from src import input_usuario
-from src.inputs import exemplo_questionary
+# from src.inputs import exemplo_questionary
+from src import exercicios_variaveis
+
 
 def main():
     # input_usuario.solicitar_string()
@@ -53,7 +55,9 @@ def main():
     #funcoes2.exercicio_viagem()
 
 
-    exemplo_questionary.exemplos()
+    #exemplo_questionary.exemplos()
+
+    exercicios_variaveis.cadastrar_produto()
 
 
 if __name__ == "__main__":
