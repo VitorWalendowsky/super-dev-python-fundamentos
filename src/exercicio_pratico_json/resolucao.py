@@ -101,3 +101,33 @@ def apresentar_tabela(dados: List[Dict[str, str]], titulo: str):
 #   Percorrer a lista de usuários agrupando os dados por estado, salvando o telefone e e-mail de cada usuário em uma lista por estado. Deve armazenar uma lista com os usuários conforme abaixo:
 #   Ex.: sc.json
 #       [{"email": "elisa.rocha@example.com", "telefone": "......"}]
+
+
+# Exercício 01
+#   Percorrer a lista de usuário, armazenando no arquivo 'free.json' o nome dos usuários que tem o plano Free
+
+def exercicio_01():
+    usuarios: List[Dict[str, any]] = ler_json("data/usuarios.json")
+    free_users = []
+
+    for usuario in usuarios:
+        assinatura = usuario.get("assinatura", {})
+        plano = assinatura.get("plano", "")
+        if plano.lower() == "free":
+            dados_pessoais = usuario.get("dados_pessoais", {})
+            nome = dados_pessoais.get("nome", "")
+            free_users.append(nome)
+
+    escrever_json(free_users, "data/free.json")
+
+    # Exercício 02
+#   Percorrer a lista de usuário, armazenando no arquivo 'tags.json' todas as tags dos usuários
+
+def exercicio_02():
+    usuarios:list[Dict[str,any]] = ler_json("data/usuarios.json")
+    todas_tags = []
+    for usuario in usuarios:
+        tags = usuario.get("tags", [])
+        todas_tags.extend(tags)
+        escrever_json(todas_tags, "data/tags.json")
+
