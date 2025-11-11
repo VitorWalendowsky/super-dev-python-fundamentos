@@ -82,3 +82,22 @@ def apresentar_tabela(dados: List[Dict[str, str]], titulo: str):
 
     console = Console()
     console.print(table)
+
+#dados para o main
+# from src.exercicio_pratico_json import resolucao
+# def main():
+#     resolucao.resolver()
+
+
+
+# Exercício 01
+#   Percorrer a lista de usuário, armazenando no arquivo 'free.json' o nome dos usuários que tem o plano Free
+# Exercício 02
+#   Percorrer a lista de usuário, armazenando no arquivo 'tags.json' todas as tags dos usuários
+# Exercício 03
+#   Percorrer a lista de usuário, armazenando no arquivo 'enderecos.json' todos os endereços dos usuários
+# Ex.: ["Rua - Numero - Bairro - CEP - UF", "Rua - Numero - Bairro - CEP - UF"]
+# Exercício 04:
+#   Percorrer a lista de usuários agrupando os dados por estado, salvando o telefone e e-mail de cada usuário em uma lista por estado. Deve armazenar uma lista com os usuários conforme abaixo:
+#   Ex.: sc.json
+#       [{"email": "elisa.rocha@example.com", "telefone": "......"}]
