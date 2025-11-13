@@ -1,5 +1,9 @@
-from datetime import date,
+from datetime import date
+import os
+import platform
 from typing import List
+from altair import Align
+import questionary
 from rich.table import Table
 from rich.console import Console
 
@@ -236,7 +240,7 @@ def exercicio_ticket():
     ticket1.usuario = usuario1
     ticket1.data_abertura = date(2025, 11, 12)
     ticket1.status = "Em análise"
-    ticket1.descricao = "Problema com o sistema de login."
+    ticket1.descricao = "Problema com login."
 
     ticket2 = Ticket()
     ticket2.numero = 1001
@@ -270,4 +274,64 @@ def exercicio_ticket():
         console= Console()
         console.print(tabela)
 
-#executar_ticket()
+# exercicio_ticket()
+
+
+
+def limpar_tela():
+    sistema=platform.system()
+    if sistema == "Windows":
+        os.system("cls")
+    else:
+        os.system("clear")
+
+console = Console()
+desenvolvedoras: list[Desenvolvedora] = []
+
+def exemplo_crud_lista_objetos():
+    menu=" "
+    while menu != "sair":
+        menu = questionary.select("Escolha o menu", choices=["Adicionar, Listar", "Sair"]).ask().lower()
+        if menu == "adicionar":
+            adicionar_desenvolvedora()
+        elif menu == "listar":
+            listar_desenvolvedoras()
+
+def adicionar_desenvolvedora():
+    #Solicitar os dados, instanciando um objeto de desenvolvedora e adicionar na lista
+    console.print(Align.center("Cadastro de desenvolvedora"), style="blue")
+
+    desenvolvedora = Desenvolvedora()
+    desenvolvedora.nome = questionary.text("Nome da desenvolvedora: ").ask()
+    desenvolvedora.proprietario = questionary.text("Proprietário: ").ask()
+
+    desenvolvedora.sede = Endereco()
+    desenvolvedora.sede.cidade = questionary.text("Cidade sede: ").ask()
+    desenvolvedora.sede.pais = questionary.text("País sede: ").ask()
+
+    desenvolvedoras.append(desenvolvedora)
+    console.print("Desenvolvedora adicionada com sucesso!", style="green")
+    input("Pressione Enter para continuar...")
+    limpar_tela()
+
+def listar_desenvolvedoras():
+    #listar desenvolvedoras
+    if len(desenvolvedoras) == 0:
+        console.print("Nenhuma desenvolvedora cadastrada.", style="red")
+        input("Pressione Enter para continuar...")
+        limpar_tela()
+        return
+    
+    table = Table("Nome", "Proprietario", "Endereco")
+
+    for i in range(0, len(desenvolvedoras)):
+        desenvolvedora = desenvolvedoras[i]
+        table.add_row(
+            desenvolvedora.nome,
+            desenvolvedora.proprietario,
+            f"{desenvolvedora.sede.cidade} - {desenvolvedora.sede.pais}"
+        )
+
+        console.print(table)
+
+#exemplo_crud_lista_objetos()

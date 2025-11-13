@@ -6,6 +6,10 @@ from src import input_usuario
 from src import exercicios_variaveis
 from src import exercicios_cinema
 from src import dicionarios
+from src.orientacao_objetos import classes
+
+
+
 
 
 def main():
@@ -65,8 +69,11 @@ def main():
 
     # exercicios_cinema.exercicio_cinema()
 
-    dicionarios.exemplo_dicionario_aluno()
+    #dicionarios.exemplo_dicionario_aluno()
 
+    classes.exercicio_marca()
+
+    classes.exercicio_ticket()
 
 if __name__ == "__main__":
     main() #executar uma função chamada de main (principal)
