@@ -71,9 +71,11 @@ def main():
 
     #dicionarios.exemplo_dicionario_aluno()
 
-    classes.exercicio_marca()
+    # classes.exercicio_marca()
 
-    classes.exercicio_ticket()
+    # classes.exercicio_ticket()
+
+    classes.crud_animais()
 
 if __name__ == "__main__":
     main() #executar uma função chamada de main (principal)

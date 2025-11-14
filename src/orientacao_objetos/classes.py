@@ -2,10 +2,14 @@ from datetime import date
 import os
 import platform
 from typing import List
-from altair import Align
+import altair as alt         
 import questionary
 from rich.table import Table
 from rich.console import Console
+from rich.align import Align
+
+
+
 
 class Endereco:
     def __init__(self):
@@ -288,6 +292,12 @@ def limpar_tela():
 console = Console()
 desenvolvedoras: list[Desenvolvedora] = []
 
+def menu_sistema():
+    menu_geral=questionary.select("Escolha o sistema", choices =["Desenvolvedora", "Sair"]).ask().lower()
+    limpar_tela()
+    if menu_geral == "desenvolvedora":
+        exemplo_crud_lista_objetos()
+
 def exemplo_crud_lista_objetos():
     menu=" "
     while menu != "sair":
@@ -335,3 +345,222 @@ def listar_desenvolvedoras():
         console.print(table)
 
 #exemplo_crud_lista_objetos()
+
+# Ex. 1: Criar uma crud de Animal e seu Dono
+# Criar uma classe chamada Dono com os seguintes atributos abaixo:
+#   - Nome
+#   - CPF
+# Criar uma classe chamada Animal com os seguintes atributos abaixo:
+# - Raça
+# - Dono
+# - Data de Nascimento
+# Fazer o CR(Create/Read) do Animal solicitando os dados de seu dono também
+# console = Console()
+
+
+# class Dono:
+#     def __init__(self, nome, cpf):
+#         self.nome = nome
+#         self.cpf = cpf
+
+
+# class Animal:
+#     def __init__(self, raca, data_nascimento, nome_dono, cpf_dono):
+#         self.raca = raca
+#         self.data_nascimento = data_nascimento
+#         self.dono = Dono(nome_dono, cpf_dono)
+
+
+# # LISTA DE ANIMAIS (depois das classes)
+# animais: List[Animal] = []
+# def menu_sistema():
+#     menu = questionary.select(
+#         "Escolha o sistema",
+#         choices=["Animal", "Sair"]
+#     ).ask().lower()
+
+#     limpar_tela()
+
+#     if menu == "animal":
+#         crud_animais()
+
+
+# def crud_animais():
+#     menu = ""
+
+#     while menu != "sair":
+#         menu = questionary.select(
+#             "Escolha o menu",
+#             choices=["Adicionar", "Listar", "Sair"]
+#         ).ask().lower()
+
+#         if menu == "adicionar":
+#             adicionar_animal()
+#         elif menu == "listar":
+#             listar_animais()
+
+
+# def adicionar_animal():
+#     raca = questionary.text("Raça do animal: ").ask()
+#     data_nascimento = questionary.text("Data de nascimento: ").ask()
+#     nome_dono = questionary.text("Nome do dono: ").ask()
+#     cpf_dono = questionary.text("CPF do dono: ").ask()
+
+#     novo_animal = Animal(raca, data_nascimento, nome_dono, cpf_dono)
+
+#     animais.append(novo_animal)
+
+#     console.print("Animal cadastrado com sucesso!", style="green")
+#     input("Pressione Enter para continuar...")
+#     limpar_tela()
+
+
+# def listar_animais():
+#     if len(animais) == 0:
+#         console.print("Nenhum animal cadastrado.", style="red")
+#         input("Pressione Enter para continuar...")
+#         limpar_tela()
+#         return
+
+#     table = Table("Raça", "Nascimento", "Dono", "CPF")
+
+#     for animal in animais:
+#         table.add_row(
+#             animal.raca,
+#             animal.data_nascimento,
+#             animal.dono.nome,
+#             animal.dono.cpf
+#         )
+
+#     console.print(table)
+#     input("Pressione Enter para continuar...")
+#     limpar_tela()
+
+
+# if __name__ == "__main__":
+#     while True:
+#         menu_sistema()
+
+
+# Ex. 2: Modificar o conteúdo da classe Dono acrescentando os atributos abaixo:
+# -  Bairro, Rua, Número
+# Alterar o CR(Create/Read) para solicitar os novos dados do dono
+# Modificar o conteúdo da classe Animal acrescentando os atributos abaixo:
+#   Peso
+#   Altura
+#   Sexo
+#   Cor
+#   Origem da Raça
+
+console = Console()
+
+class Dono:
+    def __init__(self, nome, cpf, bairro, rua, numero):
+        self.nome = nome
+        self.cpf = cpf
+        self.bairro = bairro
+        self.rua = rua
+        self.numero = numero
+
+
+class Animal:
+    def __init__(
+        self,
+        raca,
+        data_nascimento,
+        peso,
+        altura,
+        sexo,
+        cor,
+        origem_raca,
+        nome_dono,
+        cpf_dono,
+        bairro,
+        rua,
+        numero,
+    ):
+        self.raca = raca
+        self.data_nascimento = data_nascimento
+        self.peso = peso
+        self.altura = altura
+        self.sexo = sexo
+        self.cor = cor
+        self.origem_raca = origem_raca
+        self.dono = Dono(nome_dono, cpf_dono, bairro, rua, numero)
+
+
+animais: List[Animal] = []
+
+
+def crud_animais():
+    while True:
+        menu = questionary.select(
+            "Escolha o menu",
+            choices=["Adicionar", "Listar", "Sair"]
+        ).ask().lower()
+
+        if menu == "adicionar":
+            adicionar_animal()
+        elif menu == "listar":
+            listar_animais()
+        elif menu == "sair":
+            break
+
+
+def adicionar_animal():
+    console.print("Cadastro de Animal", style="blue")
+
+    raca = questionary.text("Raça do animal: ").ask()
+    data_nascimento = questionary.text("Data de nascimento: ").ask()
+    peso = questionary.text("Peso (kg): ").ask()
+    altura = questionary.text("Altura (cm): ").ask()
+    sexo = questionary.select("Sexo:", choices=["Macho", "Fêmea"]).ask()
+    cor = questionary.text("Cor: ").ask()
+    origem_raca = questionary.text("Origem da raça: ").ask()
+
+    nome_dono = questionary.text("Nome do dono: ").ask()
+    cpf_dono = questionary.text("CPF do dono: ").ask()
+    bairro = questionary.text("Bairro: ").ask()
+    rua = questionary.text("Rua: ").ask()
+    numero = questionary.text("Número: ").ask()
+
+    novo_animal = Animal(
+        raca, data_nascimento, peso, altura, sexo, cor, origem_raca,
+        nome_dono, cpf_dono, bairro, rua, numero
+    )
+
+    animais.append(novo_animal)
+
+    console.print("Animal cadastrado com sucesso!", style="green")
+    input("Pressione Enter para continuar...")
+
+
+def listar_animais():
+    if len(animais) == 0:
+        console.print("Nenhum animal cadastrado.", style="red")
+        input("Pressione Enter para continuar...")
+        return
+
+    table = Table(
+        "Raça", "Nascimento", "Peso", "Altura", "Sexo", "Cor", "Origem",
+        "Dono", "CPF", "Bairro", "Rua", "Número"
+    )
+
+    for a in animais:
+        table.add_row(
+            a.raca,
+            a.data_nascimento,
+            str(a.peso),
+            str(a.altura),
+            a.sexo,
+            a.cor,
+            a.origem_raca,
+            a.dono.nome,
+            a.dono.cpf,
+            a.dono.bairro,
+            a.dono.rua,
+            str(a.dono.numero)
+        )
+
+    console.print(table)
+    input("Pressione Enter para continuar...")
