@@ -7,7 +7,7 @@ from src import exercicios_variaveis
 from src import exercicios_cinema
 from src import dicionarios
 from src.orientacao_objetos import classes
-
+from src import construtores
 
 
 
@@ -75,7 +75,9 @@ def main():
 
     # classes.exercicio_ticket()
 
-    classes.crud_animais()
+    #classes.crud_animais()
+
+    construtores.tabela_passagens(lista)
 
 if __name__ == "__main__":
     main() #executar uma função chamada de main (principal)
