@@ -71,3 +71,164 @@ exemplo_passagem_parametros_nomeados()
 # Ex 3: Criar uma classe com 10 parâmetros alguns com valores defaults 
 # e outros n
 # Instanciar objetos e apresentar
+
+
+# Exercício 1 – Classe Player
+
+
+class Player:
+    def __init__(
+        self,
+        nick: str = "Geraldão",
+        classe: str = "tanque",
+        lane: str = "meio",
+        elo: str = "bronze",
+        maestria: str = "7",
+        main: str = "Jinx",
+    ):
+        self.nick = nick
+        self.classe = classe
+        self.lane = lane
+        self.elo = elo
+        self.maestria = maestria
+        self.main = main
+
+
+def exercicio_player():
+    # 1) Instância com 3 atributos
+    p1 = Player(nick="ShadowWolf", classe="atirador", elo="prata")
+
+    # 2) Instância com 2 atributos
+    p2 = Player(main="Lux", lane="suporte")
+
+    # 3) Instância com 1 atributo
+    p3 = Player(nick="Bruxão")
+
+    # 4) Instância com 5 atributos
+    p4 = Player(
+        nick="ArqueiroMístico",
+        classe="atirador",
+        lane="rota superior",
+        elo="platina",
+        maestria="5",
+    )
+
+    # 5) Instância com 4 atributos
+    p5 = Player(
+        nick="TankerPro",
+        classe="tanque",
+        lane="selva",
+        elo="diamante",
+    )
+
+    # 6) Instância com 6 atributos
+    p6 = Player(
+        nick="DemonLord",
+        classe="mago",
+        lane="meio",
+        elo="desafiante",
+        maestria="7",
+        main="Annie",
+    )
+
+    # 7) Instância com 2 atributos nomeados
+    p7 = Player(classe="lutador", elo="ouro")
+
+    lista = [p1, p2, p3, p4, p5, p6, p7]
+
+    print("===== DADOS DOS PLAYERS =====")
+    for jogador in lista:
+        print("-----------------------------")
+        print("Nick:", jogador.nick)
+        print("Classe:", jogador.classe)
+        print("Lane:", jogador.lane)
+        print("Elo:", jogador.elo)
+        print("Maestria:", jogador.maestria)
+        print("Main:", jogador.main)
+        print()
+
+
+# Exercício 2 – Classe com 4 parâmetros
+
+
+class Livro:
+    def __init__(
+        self,
+        titulo: str,
+        autor: str,
+        paginas: int = 100,
+        genero: str = "Ficção",
+    ):
+        self.titulo = titulo
+        self.autor = autor
+        self.paginas = paginas
+        self.genero = genero
+
+
+def exercicio_livro():
+    l1 = Livro("Duna", "Frank Herbert")
+    l2 = Livro("1984", "George Orwell", paginas=328)
+    l3 = Livro("Clean Code", "Robert Martin", genero="Programação", paginas=464)
+
+    print("===== LIVROS =====")
+    for l in [l1, l2, l3]:
+        print("-----------------------------")
+        print("Título:", l.titulo)
+        print("Autor:", l.autor)
+        print("Páginas:", l.paginas)
+        print("Gênero:", l.genero)
+        print()
+
+
+# Exercício 3 – Classe com 10 parâmetros
+
+class Carro:
+    def __init__(
+        self,
+        modelo: str,
+        marca: str,
+        ano: int,
+        cor: str = "preto",
+        motor: str = "1.0",
+        portas: int = 4,
+        cambio: str = "manual",
+        combustivel: str = "gasolina",
+        preco: float = 50000.0,
+        placa: str = "ABC-1234",
+    ):
+        self.modelo = modelo
+        self.marca = marca
+        self.ano = ano
+        self.cor = cor
+        self.motor = motor
+        self.portas = portas
+        self.cambio = cambio
+        self.combustivel = combustivel
+        self.preco = preco
+        self.placa = placa
+
+
+def exercicio_carro():
+    c1 = Carro("Civic", "Honda", 2020, preco=115000, motor="2.0")
+    c2 = Carro("Gol", "VW", 2010)
+    c3 = Carro("Corolla", "Toyota", 2022, cor="branco", cambio="automático")
+
+    print("===== CARROS =====")
+    for c in [c1, c2, c3]:
+        print("-----------------------------")
+        print("Modelo:", c.modelo)
+        print("Marca:", c.marca)
+        print("Ano:", c.ano)
+        print("Cor:", c.cor)
+        print("Motor:", c.motor)
+        print("Portas:", c.portas)
+        print("Câmbio:", c.cambio)
+        print("Combustível:", c.combustivel)
+        print("Preço:", c.preco)
+        print("Placa:", c.placa)
+        print()
+
+
+exercicio_player()
+exercicio_livro()
+exercicio_carro()
