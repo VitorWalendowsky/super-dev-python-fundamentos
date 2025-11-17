@@ -7,7 +7,8 @@ from src import exercicios_variaveis
 from src import exercicios_cinema
 from src import dicionarios
 from src.orientacao_objetos import classes
-from src import construtores
+from src.orientacao_objetos import construtores
+from src.orientacao_objetos.exercicio_enum import exemplo_console, exemplo_pessoas, exemplo_job
 
 
 
@@ -77,7 +78,10 @@ def main():
 
     #classes.crud_animais()
 
-    construtores.tabela_passagens(lista)
+    # construtores.tabela_passagens(lista)
+
+    exemplo_job()
+
 
 if __name__ == "__main__":
     main() #executar uma função chamada de main (principal)

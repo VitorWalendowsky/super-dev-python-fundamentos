@@ -232,3 +232,16 @@ def exercicio_carro():
 exercicio_player()
 exercicio_livro()
 exercicio_carro()
+
+
+#Classes
+#Atributos
+#Construtores
+#Metodos
+#objetos
+
+#Enum
+#Heranca
+#Polimorfismo
+#Encapsulamento
+#abstração
