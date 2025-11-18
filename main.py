@@ -9,6 +9,7 @@ from src import dicionarios
 from src.orientacao_objetos import classes
 from src.orientacao_objetos import construtores
 from src.orientacao_objetos.exercicio_enum import exemplo_console, exemplo_pessoas, exemplo_job
+from src.orientacao_objetos.contas import Aluno
 
 
 
@@ -80,7 +81,10 @@ def main():
 
     # construtores.tabela_passagens(lista)
 
-    exemplo_job()
+    # exemplo_job()
+
+    Aluno()
+
 
 
 if __name__ == "__main__":
